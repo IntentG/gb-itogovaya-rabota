@@ -1,0 +1,51 @@
+CREATE SCHEMA `human_friends` ;
+
+USE human_friends;
+
+CREATE TABLE cat (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+  
+CREATE TABLE dog (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+  
+CREATE TABLE mouse (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+  
+CREATE TABLE horse (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+  
+CREATE TABLE camel (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+  
+CREATE TABLE donkey (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
