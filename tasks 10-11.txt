@@ -35,3 +35,27 @@ INSERT INTO human_friends.young_animals
 SELECT *
 FROM cat WHERE age(birth_date) BETWEEN 12 AND 35;
 
+INSERT INTO human_friends.young_animals
+SELECT *
+FROM dog WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO human_friends.young_animals
+SELECT *
+FROM mouse WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO human_friends.young_animals
+SELECT *
+FROM camel WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO human_friends.young_animals
+SELECT *
+FROM horse_and_donkey WHERE age(birth_date) BETWEEN 12 AND 35;
+
+
+ALTER TABLE human_friends.young_animals ADD COLUMN age_months INT NULL;
+------------------------------------------------------------------------
+INSERT INTO human_friends.young_animals (age_months)
+VALUE (age(birth_date));
+
+
+
