@@ -1,0 +1,72 @@
+USE human_friends;
+
+TRUNCATE TABLE camel;
+
+RENAME TABLE horse TO horse_and_donkey;
+
+INSERT INTO horse_and_donkey
+SELECT *
+FROM donkey;
+
+DROP TABLE donkey;
+
+
+CREATE TABLE young_animals (
+	id INT PRIMARY KEY,
+	birth_date DATE NOT NULL,
+    comands TEXT(500) NOT NULL,
+    name VARCHAR(20) NOT NULL,
+	vid VARCHAR(20) NOT NULL,
+	type VARCHAR(20) NOT NULL
+);
+
+DELIMITER $$
+CREATE FUNCTION age(birth_date DATE)
+    RETURNS INT
+    DETERMINISTIC
+BEGIN
+    DECLARE res INT DEFAULT 0;
+    SET res = TIMESTAMPDIFF(MONTH, birth_date, CURDATE());
+    RETURN res;
+END $$
+DELIMITER ;
+
+INSERT INTO young_animals
+SELECT *
+FROM cat WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO young_animals
+SELECT *
+FROM dog WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO young_animals
+SELECT *
+FROM mouse WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO young_animals
+SELECT *
+FROM camel WHERE age(birth_date) BETWEEN 12 AND 35;
+
+INSERT INTO young_animals
+SELECT *
+FROM horse_and_donkey WHERE age(birth_date) BETWEEN 12 AND 35;
+
+
+ALTER TABLE young_animals ADD COLUMN age_months INT NULL;
+
+UPDATE young_animals
+SET age_months = (age(birth_date))
+WHERE id > 0;
+
+
+CREATE TABLE all_animals(
+SELECT * FROM cat
+UNION ALL
+SELECT * FROM mouse
+UNION ALL
+SELECT * FROM camel
+UNION ALL
+SELECT * FROM dog
+UNION ALL
+SELECT * FROM horse_and_donkey
+);
