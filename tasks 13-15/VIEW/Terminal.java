@@ -103,13 +103,13 @@ public class Terminal implements IView {
         }
     }
 
-    public String enter(String s){
+    public String enter(String s) {
         while (true) {
             System.out.println(s);
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 return reader.readLine();
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println("Try one more time");
             }
         }
