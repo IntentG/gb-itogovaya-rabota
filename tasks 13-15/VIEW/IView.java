@@ -20,5 +20,6 @@ public interface IView {
 
     Date enterDate();
 
+    void alert(String s);
 
 }

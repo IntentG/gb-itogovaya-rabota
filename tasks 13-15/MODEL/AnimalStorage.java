@@ -3,7 +3,6 @@ package MODEL;
 import VIEW.View;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class AnimalStorage implements DatabaseOperations{
 
@@ -17,7 +16,7 @@ public class AnimalStorage implements DatabaseOperations{
     @Override
     public void addAnimal(Counter id, View view) {
         int type = view.animalTypeMenu();
-        Animal animal = null;
+        Animal animal;
         if (type == 1){
             animal = new Dog(view.enterDate(), view.enterComands(), view.enterName(), id.id) ;
         }
@@ -33,10 +32,16 @@ public class AnimalStorage implements DatabaseOperations{
         else if (type == 5){
             animal = new Camel(view.enterDate(), view.enterComands(), view.enterName(), id.id) ;
         }
-        else if (type == 6){
+        else {
             animal = new Donkey(view.enterDate(), view.enterComands(), view.enterName(), id.id) ;
         }
         database.add(animal);
+        view.alert("Added successfully");
+
+        for (Animal a : database) {
+            System.out.println(a.toString());
+        }
+
     }
 
     @Override
