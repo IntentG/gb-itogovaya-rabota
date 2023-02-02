@@ -7,6 +7,22 @@ public abstract class Animal {
     private Date birthDate;
     private String comands;
     private String name;
+    private int id;
+
+    public Animal(Date birthDate, String comands, String name, int id) {
+        this.birthDate = birthDate;
+        this.comands = comands;
+        this.name = name;
+        this.id = id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public void doSomeCommand() {
 
@@ -35,4 +51,5 @@ public abstract class Animal {
     public void setName(String name) {
         this.name = name;
     }
+
 }
